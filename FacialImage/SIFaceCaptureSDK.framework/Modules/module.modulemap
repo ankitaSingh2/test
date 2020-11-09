@@ -1,0 +1,11 @@
+framework module SIFaceCaptureSDK {
+  umbrella header "SIFaceCaptureSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module SIFaceCaptureSDK.Swift {
+    header "SIFaceCaptureSDK-Swift.h"
+    requires objc
+}

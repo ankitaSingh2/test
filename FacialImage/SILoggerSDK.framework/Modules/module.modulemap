@@ -1,0 +1,11 @@
+framework module SILoggerSDK {
+  umbrella header "SILoggerSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module SILoggerSDK.Swift {
+    header "SILoggerSDK-Swift.h"
+    requires objc
+}

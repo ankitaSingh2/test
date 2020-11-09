@@ -1,0 +1,102 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target x86_64-apple-ios13.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SILoggerSDK
+import CoreData
+import Foundation
+@_exported import SILoggerSDK
+import Swift
+public enum Loglevel : Swift.Int {
+  case off
+  case fatal
+  case error
+  case warn
+  case info
+  case debug
+  case trace
+  case all
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class SILoggerHandler : SILoggerSDK.SILogger {
+  public static let shared: SILoggerSDK.SILoggerHandler
+  override public init(prefix: Swift.String = super, loglevel: SILoggerSDK.Loglevel = super)
+  @objc deinit
+}
+@objc public class SILogger : ObjectiveC.NSObject {
+  public var enableFileLogging: Swift.Bool {
+    get
+    set
+  }
+  public var enableConsoleLogging: Swift.Bool {
+    get
+    set
+  }
+  public var dateBefore: Foundation.Date {
+    get
+    set
+  }
+  public var fileExtention: Swift.String
+  public var prefix: Swift.String
+  public var loglevel: SILoggerSDK.Loglevel
+  public init(prefix: Swift.String = "", loglevel: SILoggerSDK.Loglevel = .debug)
+  public func readConfigForLogger(_ config: [Swift.String : Any])
+  public func log(_ loglevel: SILoggerSDK.Loglevel, _ data: Any...)
+  public func auditLog(source: Swift.String, eventDescription: Swift.String, eventCategory: Swift.String, eventInfo: Swift.String = "", eventSourceHost: Swift.String = "", eventTime: Swift.String = "", username: Swift.String = "", requestOrigin: Swift.String = "", enrollmentId: Swift.String = "")
+  public func removeAuditLog(source: Swift.String, eventDescription: Swift.String, eventCategory: Swift.String, eventInfo: Swift.String = "", eventSourceHost: Swift.String = "", eventTime: Swift.String = "", username: Swift.String = "", requestOrigin: Swift.String = "", enrollmentId: Swift.String = "")
+  public func fetchAuditLog(limit: Swift.Int = 0, completionHandler: ([[Swift.String : Swift.String]]) -> Swift.Void)
+  public var persistentContainer: CoreData.NSPersistentContainer {
+    get
+    set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(Logs) public class Logs : CoreData.NSManagedObject {
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+extension Logs {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<SILoggerSDK.Logs>
+  @objc @NSManaged dynamic public var enrollmentId: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var eventCategory: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var eventDescription: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var eventInfo: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var eventSourceHost: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var eventTime: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var requestOrigin: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var source: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var username: Swift.String? {
+    @objc get
+    @objc set
+  }
+}
+extension SILoggerSDK.Loglevel : Swift.Equatable {}
+extension SILoggerSDK.Loglevel : Swift.Hashable {}
+extension SILoggerSDK.Loglevel : Swift.RawRepresentable {}
