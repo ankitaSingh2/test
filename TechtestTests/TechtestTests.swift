@@ -30,5 +30,10 @@ class TechtestTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    func testviewCntroller() {
+        let controller = ViewController()
+        controller.fields = RowFieldConfiguration().getallFieldlinkedUp(rows: [["title":"Beavers","description":"Beavers are second only to humans","imageHref":"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg"]])
+        XCTAssertNotNil(controller, "view controller instance was successfully created")
+    }
 
 }

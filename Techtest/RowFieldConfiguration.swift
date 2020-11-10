@@ -7,6 +7,7 @@
 //
 
 import Foundation
+// MARK: - custom model class to fetch json array
 class RowFieldConfiguration{
     func getallFieldlinkedUp(rows:[[String:Any]]) -> [RowField]{
         var rowFields = [RowField]()

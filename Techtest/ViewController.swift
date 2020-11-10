@@ -8,14 +8,60 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     public var fields = [RowField]()
+    var navTitleString:String?
+    let rowsTableView = UITableView()
+    let containerView:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 5
+        view.clipsToBounds = true // this will make sure its children do not go out of the boundary
+        return view
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         gettingdata()
+        setUp()
         // Do any additional setup after loading the view.
     }
+    // Runtime Set up Table view
+    func setUp() {
+            view.backgroundColor = .white
+        
+        view.addSubview(rowsTableView)
+        
+        rowsTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        rowsTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
+        rowsTableView.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        rowsTableView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        rowsTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        rowsTableView.dataSource = self
+        rowsTableView.delegate = self
+    }
+    
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return fields.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
+       //     let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
+
+    //      cell.textLabel?.text = contacts[indexPath.row].name
+            //cell.contact = contacts[indexPath.row]
+
+            return cell
+        }
+        
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 100
+        }
+    // MARK: - getting parsing data and load into arry
     func gettingdata()
     {
         let url = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
