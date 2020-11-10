@@ -9,4 +9,6 @@
 import Foundation
 struct SIConstants {
     static let sizeConstanttableViewright = -30
+    static let sizeConstantheight = 70
+    static let sizeConstantlead = 10
 }
