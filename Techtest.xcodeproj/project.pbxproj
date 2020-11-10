@@ -15,6 +15,7 @@
 		853AE495255A5CDB00DFF1DF /* TechtestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AE494255A5CDB00DFF1DF /* TechtestTests.swift */; };
 		853AE4A0255A75AC00DFF1DF /* RowFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AE49F255A75AC00DFF1DF /* RowFieldConfiguration.swift */; };
 		853AE4A2255A895000DFF1DF /* SIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AE4A1255A895000DFF1DF /* SIConstants.swift */; };
+		853AE4A4255A958E00DFF1DF /* RowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AE4A3255A958E00DFF1DF /* RowTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		853AE496255A5CDB00DFF1DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		853AE49F255A75AC00DFF1DF /* RowFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowFieldConfiguration.swift; sourceTree = "<group>"; };
 		853AE4A1255A895000DFF1DF /* SIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIConstants.swift; sourceTree = "<group>"; };
+		853AE4A3255A958E00DFF1DF /* RowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				853AE47D255A5CD900DFF1DF /* AppDelegate.swift */,
 				853AE47F255A5CD900DFF1DF /* SceneDelegate.swift */,
 				853AE481255A5CD900DFF1DF /* ViewController.swift */,
+				853AE4A3255A958E00DFF1DF /* RowTableViewCell.swift */,
 				853AE49F255A75AC00DFF1DF /* RowFieldConfiguration.swift */,
 				853AE4A1255A895000DFF1DF /* SIConstants.swift */,
 				853AE486255A5CDB00DFF1DF /* Assets.xcassets */,
@@ -205,6 +208,7 @@
 				853AE482255A5CD900DFF1DF /* ViewController.swift in Sources */,
 				853AE47E255A5CD900DFF1DF /* AppDelegate.swift in Sources */,
 				853AE4A0255A75AC00DFF1DF /* RowFieldConfiguration.swift in Sources */,
+				853AE4A4255A958E00DFF1DF /* RowTableViewCell.swift in Sources */,
 				853AE4A2255A895000DFF1DF /* SIConstants.swift in Sources */,
 				853AE480255A5CD900DFF1DF /* SceneDelegate.swift in Sources */,
 			);
@@ -359,7 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8QNY2HGLUP;
+				DEVELOPMENT_TEAM = CC4H868G32;
 				INFOPLIST_FILE = Techtest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -377,7 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8QNY2HGLUP;
+				DEVELOPMENT_TEAM = CC4H868G32;
 				INFOPLIST_FILE = Techtest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

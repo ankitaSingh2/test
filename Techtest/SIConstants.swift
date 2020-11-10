@@ -8,9 +8,5 @@
 
 import Foundation
 struct SIConstants {
-    static let sizeConstanttopcontainerView = 170
-    static let sizeConstantleadcontainerView = 15
-    static let sizeConstanttrailcontainerView = -15
-    static let sizeConstantbottomcontainerView = -190
-    
+    static let sizeConstanttableViewright = -30
 }

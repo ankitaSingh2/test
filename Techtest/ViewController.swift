@@ -22,26 +22,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .white
         gettingdata()
         setUp()
         // Do any additional setup after loading the view.
     }
     // Runtime Set up Table view
     func setUp() {
-            view.backgroundColor = .white
-        
-        view.addSubview(rowsTableView)
+         view.addSubview(rowsTableView)
         
         rowsTableView.translatesAutoresizingMaskIntoConstraints = false
         
         rowsTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
         rowsTableView.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        rowsTableView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        rowsTableView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor, constant: CGFloat(SIConstants.sizeConstanttableViewright)).isActive = true
         rowsTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         rowsTableView.dataSource = self
         rowsTableView.delegate = self
+        rowsTableView.register(RowTableViewCell.self, forCellReuseIdentifier: "Cell")
+        print(fields)
+
     }
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,13 +50,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
-       //     let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactTableViewCell
-
-    //      cell.textLabel?.text = contacts[indexPath.row].name
-            //cell.contact = contacts[indexPath.row]
-
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RowTableViewCell
+            cell.field = fields[indexPath.row]
+           return cell
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,6 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 debugPrint(arr)
                                 self.fields = RowFieldConfiguration().getallFieldlinkedUp(rows: arr)
                                 print(self.fields)
+                                self.rowsTableView .reloadData()
                             }
                             }
                             

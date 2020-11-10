@@ -15,8 +15,11 @@ class RowFieldConfiguration{
         let tempTitle = dict["title"] as? String
         let tempDescription = dict["description"] as? String
         let tempImageHref = dict["imageHref"] as? String
+            if (tempTitle != nil)
+            {
             let dict = RowField(title: tempTitle, description: tempDescription, imageHref: tempImageHref)
             rowFields.append(dict)
+            }
             
         }
         return rowFields
