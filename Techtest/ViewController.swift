@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    public var fields = [RowField]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .systemBlue
         gettingdata()
         // Do any additional setup after loading the view.
     }
@@ -34,6 +34,8 @@ class ViewController: UIViewController {
                             }
                             if let arr = json["rows"] as? [[String: Any]] {
                                 debugPrint(arr)
+                                self.fields = RowFieldConfiguration().getallFieldlinkedUp(rows: arr)
+                                print(self.fields)
                             }
                             }
                             
